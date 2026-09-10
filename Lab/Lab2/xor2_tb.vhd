@@ -5,11 +5,19 @@ entity xor2_tb is
 end entity xor2_tb;
 
 architecture sim of xor2_tb is
+  component xor2 is
+    port (
+      a : in  std_logic;
+      b : in  std_logic;
+      y : out std_logic
+    );
+  end component xor2;
+
   signal a : std_logic := '0';
   signal b : std_logic := '0';
   signal y : std_logic;
 begin
-  dut : entity work.xor2
+  dut : xor2
     port map (
       a => a,
       b => b,
@@ -46,3 +54,4 @@ begin
     wait;
   end process stimulus;
 end architecture sim;
+
